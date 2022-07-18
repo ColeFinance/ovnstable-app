@@ -1,9 +1,9 @@
 const { ethers } = require("hardhat");
 
 
-let {POLYGON} = require('@overnight-contracts/common/utils/assets');
+let {CANDLE} = require('@overnight-contracts/common/utils/assets');
 
-let uniswapRouter = "0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff";
+let uniswapRouter = "0x1a45c9f823f64c9360b0c3df269f824cf404f82b";
 
 module.exports = async ({getNamedAccounts, deployments}) => {
     const {deploy} = deployments;
@@ -19,7 +19,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
     let value = "5000000000000000000000000";
 
     const buyonSwap = await ethers.getContract("BuyonSwap");
-    await buyonSwap.buy(POLYGON.usdc, uniswapRouter, {value: value});
+    await buyonSwap.buy(CANDLE.usdc, uniswapRouter, {value: value});
 
     console.log('Buy usdc: ' + value);
 };

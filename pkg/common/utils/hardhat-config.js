@@ -37,6 +37,12 @@ function getNetworkByName(network) {
             gasPrice: gasPrice,
         },
 
+        candle: {
+            url: forkingUrl,
+            accounts: accountsNetwork,
+            timeout: timeout,
+            gasPrice: gasPrice,
+        },
 
         polygon: {
             url: forkingUrl,

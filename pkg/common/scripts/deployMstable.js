@@ -19,7 +19,7 @@ async function main() {
     let provider = ethers.provider;
 
     console.log('Provider: ' + provider.connection.url);
-    let wallet = await new ethers.Wallet(process.env.PK_POLYGON, provider);
+    let wallet = await new ethers.Wallet(process.env.PK_CANDLE, provider);
     console.log('Wallet: ' + wallet.address);
     const balance = await provider.getBalance(wallet.address);
     console.log('Balance wallet: ' + fromE18(balance))
@@ -30,7 +30,7 @@ async function main() {
     let ovn = await ethers.getContractAt(OvnToken.abi, OvnToken.address);
 
 
-    let quorum = fromOvnGov(await governator.quorum(await ethers.provider.getBlockNumber('polygon')-1));
+    let quorum = fromOvnGov(await governator.quorum(await ethers.provider.getBlockNumber('candle')-1));
     console.log('Quorum: ' + quorum);
 
     const proposalId = "87959442158342476488539525451864684949777127548068069626858436987653532573024";
@@ -77,4 +77,3 @@ main()
         console.error(error);
         process.exit(1);
     });
-

@@ -17,7 +17,7 @@ async function initWallet() {
 
     let provider = ethers.provider;
     console.log('Provider: ' + provider.connection.url);
-    wallet = await new ethers.Wallet(process.env.PK_POLYGON, provider);
+    wallet = await new ethers.Wallet(process.env.PK_CANDLE, provider);
     console.log('Wallet: ' + wallet.address);
     const balance = await provider.getBalance(wallet.address);
     console.log('Balance wallet: ' + fromE18(balance));
